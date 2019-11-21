@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     FPSInput _input = null;
     FPSMotor _motor = null;
+    Shoot _shoot = null;
 
     [SerializeField] float _movementSpeed = 0.1f;
     [SerializeField] float _sprintMult = 3f;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         _input = GetComponent<FPSInput>();
         _motor = GetComponent<FPSMotor>();
+        _shoot = GetComponent<Shoot>();
     }
 
     private void Start()
@@ -81,7 +83,6 @@ public class PlayerController : MonoBehaviour
     void OnShoot()
     {
         Debug.Log("Shoot");
-        _gunBurst.Play();
-        _gunSound.Play();
+        _shoot.ShootStuff();
     }
 }

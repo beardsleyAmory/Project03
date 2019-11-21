@@ -3,7 +3,42 @@ guid: 85a28853a80e92b42a72a52cb1e15571
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 25543ef8143e14a4685d8f279f5cebc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dial_Text
+    second: {fileID: 2100000, guid: 18b2b8ff386a27149b2a1d657471568d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: b346a77c0f85e2647b5dfe90bbf0677a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glowing
+    second: {fileID: 2100000, guid: a7ca2ebd125cea343bf6ef87e4c3f2d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Inner_Grey
+    second: {fileID: 2100000, guid: f90a5a2a2eaead742b4cf1feb788baeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 18b2b8ff386a27149b2a1d657471568d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: b346a77c0f85e2647b5dfe90bbf0677a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
