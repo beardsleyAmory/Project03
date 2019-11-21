@@ -23,12 +23,14 @@ public class Shoot : MonoBehaviour
         Vector3 currGun = new Vector3(_spout.transform.position.x, _spout.transform.position.y, _spout.transform.position.z + 0.2f);
         Rigidbody rb = null;
 
-        currPlort = Instantiate(_prefabPlort);
-        currPlort.transform.position = currGun;
+        currPlort = Instantiate(_prefabPlort, _spout.transform.position, _spout.transform.rotation);
+        //currPlort.transform.position = currGun;
         rb = currPlort.GetComponent<Rigidbody>();
         rb = currPlort.GetComponent<Rigidbody>();
-        rb.velocity = transform.TransformDirection(Vector3.forward * _bulletVelocity);
+        rb.AddForce(_spout.transform.forward * -1 * _bulletVelocity);
         //start recoil animation
+        _baseAnim.enabled = true;
+        _baseAnim.Play("Shoot", -1, 0f);
         //play sounds and whatever
     }
 }
