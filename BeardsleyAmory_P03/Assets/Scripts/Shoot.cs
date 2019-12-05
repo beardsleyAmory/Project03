@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] Animation _recoilAnim = null;
     [SerializeField] AnimationClip _shootClip = null;
     [SerializeField] Animator _baseAnim = null;
     [SerializeField] GameObject _prefabPlort = null;
     [SerializeField] float _bulletVelocity = 2f;
     [SerializeField] GameObject _spout = null;
+    [SerializeField] ParticleSystem _eject = null;
 
     //AnimationEvent evt = new AnimationEvent();
     
@@ -54,6 +54,8 @@ public class Shoot : MonoBehaviour
             rb = currPlort.GetComponent<Rigidbody>();
             rb = currPlort.GetComponent<Rigidbody>();
             rb.AddForce(_spout.transform.forward * -1 * _bulletVelocity);
+
+            _eject.Play();
 
             yield return new WaitForSecondsRealtime(0.8f);
         }
