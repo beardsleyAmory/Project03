@@ -10,8 +10,11 @@ public class Shoot : MonoBehaviour
     [SerializeField] float _bulletVelocity = 2f;
     [SerializeField] GameObject _spout = null;
     [SerializeField] ParticleSystem _eject = null;
+    [SerializeField] AudioSource _shootNoise = null;
+    [SerializeField] AudioSource _recepNoise = null;
 
     public int StartInven = 20;
+    private float _startPitch;
 
     //AnimationEvent evt = new AnimationEvent();
     
@@ -25,6 +28,8 @@ public class Shoot : MonoBehaviour
 
         // get the animation clip and add the AnimationEvent
         //_shootClip.AddEvent(evt);
+
+        _startPitch = _recepNoise.pitch;
     }
 
     public void ShootStuff()
@@ -34,20 +39,33 @@ public class Shoot : MonoBehaviour
         //ShootTheThing();
         RecoilAnimation();
         StartCoroutine("ShootTheThing");
+        StartCoroutine("Noise");
         //play sounds and whatever
+        
     }
 
     public void ResetAnim()
     {
         _baseAnim.SetInteger("Shoot", 0);
         StopAllCoroutines();
+        _recepNoise.pitch = _startPitch;
+    }
+
+    IEnumerator Noise()
+    {
+        while (true)
+        {
+            _shootNoise.Play();
+
+            yield return new WaitForSecondsRealtime(0.8f);
+        }
     }
 
     IEnumerator ShootTheThing()
     {
         while (StartInven != 0)
         {
-            Debug.Log("Shot The Thing");
+            //Debug.Log("Shot The Thing");
             GameObject currPlort = null;
             Vector3 currGun = new Vector3(_spout.transform.position.x, _spout.transform.position.y, _spout.transform.position.z + 0.2f);
             Rigidbody rb = null;
@@ -60,6 +78,7 @@ public class Shoot : MonoBehaviour
             _eject.Play();
 
             StartInven--;
+            _recepNoise.pitch += 0.1f;
 
             yield return new WaitForSecondsRealtime(0.8f);
         }
