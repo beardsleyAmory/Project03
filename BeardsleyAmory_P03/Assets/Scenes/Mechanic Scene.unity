@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recoilAnim: {fileID: 750041554}
+  _shootClip: {fileID: 7400000, guid: 4e97d1e69126d5a4d852fa7e0a7a82a6, type: 2}
   _baseAnim: {fileID: 1087000460}
   _prefabPlort: {fileID: 7438021182238553421, guid: fc4fdefa6c39df344b4cb2829cec860a,
     type: 3}

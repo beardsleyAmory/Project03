@@ -13,6 +13,7 @@ public class FPSInput : MonoBehaviour
     public event Action SprintOnInput = delegate { };
     public event Action SprintOffInput = delegate { };
     public event Action ShootInput = delegate { };
+    public event Action StopShootInput = delegate { };
 
     private void Update()
     {
@@ -22,6 +23,7 @@ public class FPSInput : MonoBehaviour
         DetectSprintOnInput();
         DetectSprintOffInput();
         DetectShootInput();
+        DetectStopShootInput();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -92,6 +94,14 @@ public class FPSInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             ShootInput?.Invoke();
+        }
+    }
+
+    void DetectStopShootInput()
+    {
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            StopShootInput?.Invoke();
         }
     }
 }

@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         _input.SprintOnInput += OnSprintOn;
         _input.SprintOffInput += OnSprintOff;
         _input.ShootInput += OnShoot;
+        _input.StopShootInput += OnStopShoot;
     }
 
     private void OnDisable()
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
         _input.SprintOnInput -= OnSprintOn;
         _input.SprintOffInput -= OnSprintOff;
         _input.ShootInput -= OnShoot;
+        _input.StopShootInput -= OnStopShoot;
     }
 
     void OnSprintOn()
@@ -82,7 +84,12 @@ public class PlayerController : MonoBehaviour
 
     void OnShoot()
     {
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
         _shoot.ShootStuff();
+    }
+
+    void OnStopShoot()
+    {
+        _shoot.ResetAnim();
     }
 }
