@@ -11,6 +11,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject _spout = null;
     [SerializeField] ParticleSystem _eject = null;
 
+    public int StartInven = 20;
+
     //AnimationEvent evt = new AnimationEvent();
     
 
@@ -43,7 +45,7 @@ public class Shoot : MonoBehaviour
 
     IEnumerator ShootTheThing()
     {
-        while (true)
+        while (StartInven != 0)
         {
             Debug.Log("Shot The Thing");
             GameObject currPlort = null;
@@ -56,6 +58,8 @@ public class Shoot : MonoBehaviour
             rb.AddForce(_spout.transform.forward * -1 * _bulletVelocity);
 
             _eject.Play();
+
+            StartInven--;
 
             yield return new WaitForSecondsRealtime(0.8f);
         }
