@@ -7,12 +7,19 @@ public class HUDController : MonoBehaviour
 {
     [SerializeField] Text _inventoryNumber = null;
     [SerializeField] Shoot _inventory = null;
+    [SerializeField] Receptacle _receptacle = null;
     [SerializeField] Image _inventoryImg = null;
     [SerializeField] Sprite _empty = null;
+    [SerializeField] Text _moneyNumber = null;
+
+    [SerializeField] int _startMoney;
+
+    private float _currAlpha = 1;
 
     private void Start()
     {
         _inventoryNumber.text = "x " + _inventory.StartInven;
+        _moneyNumber.text = "" + _startMoney;
     }
 
     private void Update()
@@ -26,5 +33,7 @@ public class HUDController : MonoBehaviour
         {
             _inventoryNumber.text = "x " + _inventory.StartInven;
         }
+
+        _moneyNumber.text = "" + (_startMoney + _receptacle.MoneyAdd);
     }
 }

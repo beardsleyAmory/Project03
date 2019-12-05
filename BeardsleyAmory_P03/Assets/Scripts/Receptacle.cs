@@ -9,6 +9,9 @@ public class Receptacle : MonoBehaviour
 
     [SerializeField] ParticleSystem _stars = null;
     [SerializeField] AudioSource _receiveNoise = null;
+    [SerializeField] HUDController _hud = null;
+
+    public int MoneyAdd = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,5 +21,6 @@ public class Receptacle : MonoBehaviour
         other.gameObject.SetActive(false);
         _stars.Play();
         _receiveNoise.Play();
+        MoneyAdd += 36;
     }
 }
